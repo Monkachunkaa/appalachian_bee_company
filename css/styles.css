@@ -751,6 +751,7 @@ section.bg-white {
     
     .contact__form .btn {
         display: block;
+        width: 100%; /* Full width to match form fields */
         margin: 0 auto;
     }
 }
