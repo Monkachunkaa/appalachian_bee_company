@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Appalachian Bee Company - Your trusted source for quality beekeeping supplies in Prestonsburg, Kentucky. Family-owned and operated.">
+    <meta name="keywords" content="beekeeping supplies, honey, beekeeping equipment, Prestonsburg, Kentucky, Appalachian">
+    
+    <title>Appalachian Bee Company | Quality Beekeeping Supplies in Prestonsburg, KY</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Favicon (you can add this later) -->
+    <!-- <link rel="icon" type="image/png" href="img/favicon.png"> -->
+</head>
+<body>
+    
+    <!-- ==========================================================================
+         Header & Navigation
+         Desktop: Logo left, navigation right
+         Mobile: Logo left, hamburger right
+         ========================================================================== -->
+    <header class="header">
+        <div class="container header__container">
+            <!-- Logo -->
+            <a href="#home" class="header__logo-link">
+                <img src="img/appalachian_bee_company_logo.webp" alt="Appalachian Bee Company Logo" class="header__logo">
+            </a>
+            
+            <!-- Mobile menu toggle button (outside nav for proper positioning) -->
+            <button class="nav__toggle" aria-label="Toggle navigation menu">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+            
+            <!-- Navigation -->
+            <nav class="nav">
+                <!-- Navigation links -->
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">About</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#features" class="nav__link">Products</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">Contact</a>
+                    </li>
+                </ul>
+                
+                <!-- Contact icons -->
+                <div class="nav__contact-icons">
+                    <a href="tel:6064223742" class="nav__contact-icon" aria-label="Call us" title="(606) 422-3742">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </a>
+                    <a href="mailto:richie9218@gmail.com" class="nav__contact-icon" aria-label="Email us" title="richie9218@gmail.com">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=3336+Abbott+Creek+Road+Prestonsburg+KY" target="_blank" rel="noopener noreferrer" class="nav__contact-icon" aria-label="Get directions" title="3336 Abbott Creek Road, Prestonsburg, KY">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- ==========================================================================
+         Hero Section
+         Main landing area with headline, CTAs, and product categories
+         ========================================================================== -->
+    <section id="home" class="hero">
+        <div class="container">
+            <!-- Large prominent logo at top of hero -->
+            <div class="hero__logo-container">
+                <img src="img/appalachian_bee_company_logo.webp" alt="Appalachian Bee Company Logo" class="hero__logo">
+            </div>
+            
+            <h1 class="hero__title">Quality Beekeeping Supplies from the Heart of Appalachia</h1>
+            <p class="hero__subtitle">Family-owned and operated in Prestonsburg, Kentucky</p>
+            
+            <!-- Call-to-Action buttons -->
+            <div class="hero__cta-group">
+                <a href="#contact" class="btn btn--primary">Get in Touch</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=3336+Abbott+Creek+Road+Prestonsburg+KY" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">Visit Our Store</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==========================================================================
+         About Section
+         Information about the business owners and their passion
+         ========================================================================== -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about__content">
+                <!-- About text content -->
+                <div class="about__text">
+                    <h2>Our Story</h2>
+                    <div class="divider"></div>
+                    <p>
+                        Appalachian Bee Company was born from our love of honeybees and beekeeping on our farm in Eastern Kentucky. Having to drive an hour and a half to get beekeeping supplies was a real problem and we decided to become a solution.
+                    </p>
+                    <p>
+                        Our love of beekeeping coupled with the need for a local supply shop with fair prices is why Appalachian Bee Company exists.
+                    </p>
+                    <p>
+                        Come visit us on our farm in Prestonsburg or browse online. Thank you for supporting our family business!
+                    </p>
+                    <a href="#contact" class="btn btn--primary about__cta-desktop">Get in Touch</a>
+                </div>
+                
+                <!-- About image (below text now) -->
+                <div class="about__image-container">
+                    <img src="img/about_us.webp" alt="Jennifer and Richie, owners of Appalachian Bee Company" class="about__image">
+                    <p class="about__image-caption">Richie and Jennifer - Owners</p>
+                    <a href="#contact" class="btn btn--primary about__cta-mobile">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==========================================================================
+         Product Categories Section (moved from hero)
+         Displays the three main product categories with images
+         ========================================================================== -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="divider" style="margin: var(--spacing-md) auto;"></div>
+            
+            <div class="features__grid">
+                <!-- Protective Equipment -->
+                <div class="category-card category-card--large">
+                    <div class="category-card__image-container category-card__image-container--large">
+                        <img src="img/protective_equipment.webp" alt="Beekeeping Protective Equipment" class="category-card__image">
+                    </div>
+                    <h3 class="category-card__title category-card__title--large">Protective Equipment</h3>
+                    <p class="category-card__description category-card__description--large">Stay safe with our high-quality suits, gloves, and veils</p>
+                </div>
+                
+                <!-- Hives and Components -->
+                <div class="category-card category-card--large">
+                    <div class="category-card__image-container category-card__image-container--large">
+                        <img src="img/hives_and_components.webp" alt="Beehives and Components" class="category-card__image">
+                    </div>
+                    <h3 class="category-card__title category-card__title--large">Hives & Components</h3>
+                    <p class="category-card__description category-card__description--large">Complete hives, frames, and essential accessories</p>
+                </div>
+                
+                <!-- Supplements and Medications -->
+                <div class="category-card category-card--large">
+                    <div class="category-card__image-container category-card__image-container--large">
+                        <img src="img/supplements_medications.webp" alt="Bee Supplements and Medications" class="category-card__image">
+                    </div>
+                    <h3 class="category-card__title category-card__title--large">Supplements & Education</h3>
+                    <p class="category-card__description category-card__description--large">Keep your colonies healthy and thriving</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==========================================================================
+         Contact Section
+         Contact form and business information
+         ========================================================================== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact__container">
+                <!-- Contact information -->
+                <div class="contact__info">
+                    <h2>Visit Us or Get in Touch</h2>
+                    <div class="divider"></div>
+                    <p>
+                        We'd love to hear from you! Whether you have questions about our products, need beekeeping advice, or want to visit our store, we're here to help.
+                    </p>
+                    
+                    <div class="contact__details">
+                        <!-- Phone -->
+                        <div class="contact__detail">
+                            <span class="contact__detail-icon">📞</span>
+                            <div>
+                                <strong>Phone:</strong><br>
+                                <a href="tel:6064223742">(606) 422-3742</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="contact__detail">
+                            <span class="contact__detail-icon">✉️</span>
+                            <div>
+                                <strong>Email:</strong><br>
+                                <a href="mailto:richie9218@gmail.com">richie9218@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Address -->
+                        <div class="contact__detail">
+                            <span class="contact__detail-icon">📍</span>
+                            <div>
+                                <strong>Store Location:</strong><br>
+                                3336 Abbott Creek Road<br>
+                                Prestonsburg, KY
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact form -->
+                <div class="contact__form-container">
+                    <form class="contact__form" id="contactForm">
+                        <h3>Send Us a Message</h3>
+                        
+                        <!-- Name field -->
+                        <div class="form__group">
+                            <label for="name" class="form__label">Name *</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                class="form__input" 
+                                required
+                                placeholder="Your name"
+                            >
+                        </div>
+                        
+                        <!-- Email field -->
+                        <div class="form__group">
+                            <label for="email" class="form__label">Email *</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                class="form__input" 
+                                required
+                                placeholder="your.email@example.com"
+                            >
+                        </div>
+                        
+                        <!-- Phone field (optional) -->
+                        <div class="form__group">
+                            <label for="phone" class="form__label">Phone</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                class="form__input"
+                                placeholder="(606) 123-4567"
+                            >
+                        </div>
+                        
+                        <!-- Message field -->
+                        <div class="form__group">
+                            <label for="message" class="form__label">Message *</label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                class="form__textarea" 
+                                required
+                                placeholder="How can we help you?"
+                            ></textarea>
+                        </div>
+                        
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn--primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==========================================================================
+         Footer
+         Footer with business information and links
+         ========================================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <!-- Company info -->
+                <div class="footer__section">
+                    <h3>Appalachian Bee Company</h3>
+                    <p>
+                        Your trusted partner for quality beekeeping supplies in Eastern Kentucky.
+                    </p>
+                </div>
+                
+                <!-- Contact info -->
+                <div class="footer__section">
+                    <h3>Contact</h3>
+                    <p>
+                        3336 Abbott Creek Road<br>
+                        Prestonsburg, KY<br>
+                        <a href="tel:6064223742">(606) 422-3742</a><br>
+                        <a href="mailto:richie9218@gmail.com">richie9218@gmail.com</a>
+                    </p>
+                </div>
+                
+                <!-- Quick links -->
+                <div class="footer__section">
+                    <h3>Quick Links</h3>
+                    <p>
+                        <a href="#home">Home</a><br>
+                        <a href="#about">About Us</a><br>
+                        <a href="#features">Why Choose Us</a><br>
+                        <a href="#contact">Contact</a>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer__bottom">
+                <p>&copy; <span id="currentYear"></span> Appalachian Bee Company. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

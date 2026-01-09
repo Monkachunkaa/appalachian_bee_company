@@ -1,0 +1,54 @@
+/* ==========================================================================
+   CSS Reset - Ensures consistent rendering across browsers
+   ========================================================================== */
+
+/* Box sizing reset - makes width/height calculations more intuitive */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set core body defaults */
+body {
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Make images easier to work with */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* Remove default form element styling */
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role */
+ul[role='list'], ol[role='list'] {
+    list-style: none;
+}
+
+/* Prevent text overflow */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+/* Remove default button styles */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Smooth scrolling for anchors */
+html {
+    scroll-behavior: smooth;
+}

@@ -1,0 +1,758 @@
+/* ==========================================================================
+   Appalachian Bee Company - Main Stylesheet
+   Color Palette:
+   - Primary (Honey Gold): #B0834B
+   - Secondary (Charcoal): #1A1A1B
+   - Background (Cream): #FDF1E9
+   - Deep Forest: #2C3327
+   - Soft Amber: #E9C46A
+   - Pure White: #FFFFFF
+   ========================================================================== */
+
+/* ==========================================================================
+   CSS Custom Properties (Variables)
+   ========================================================================== */
+:root {
+    /* Brand Colors */
+    --color-honey-gold: #B0834B;
+    --color-charcoal: #1A1A1B;
+    --color-cream: #FDF1E9;
+    --color-deep-forest: #2C3327;
+    --color-soft-amber: #E9C46A;
+    --color-white: #FFFFFF;
+    --color-body-text: #333333;
+    
+    /* Typography */
+    --font-primary: 'Merriweather', 'Georgia', 'Times New Roman', serif;
+    --font-secondary: 'Arial', 'Helvetica', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+    
+    /* Container */
+    --container-max-width: 1200px;
+    --container-padding: 2rem;
+    
+    /* Transitions */
+    --transition-speed: 0.3s;
+}
+
+/* ==========================================================================
+   Base Typography
+   ========================================================================== */
+body {
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    color: var(--color-body-text);
+    background-color: var(--color-cream);
+}
+
+/* Heading hierarchy - all use Charcoal for strong presence */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    color: var(--color-charcoal);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(1.75rem, 4.5vw, 3rem);
+    margin-bottom: var(--spacing-md);
+}
+
+h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: var(--spacing-md);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: var(--spacing-sm);
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.8;
+}
+
+/* Links - use Honey Gold for visibility */
+a {
+    color: var(--color-honey-gold);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--color-deep-forest);
+}
+
+/* ==========================================================================
+   Layout Components
+   ========================================================================== */
+
+/* Container - centers content and adds horizontal padding */
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* Section spacing */
+section {
+    padding: var(--spacing-lg) 0;
+}
+
+/* Alternate white background sections for visual separation */
+section.bg-white {
+    background-color: var(--color-white);
+}
+
+/* ==========================================================================
+   Header & Navigation
+   Desktop: Logo left, nav right
+   Mobile: Logo left, hamburger right
+   ========================================================================== */
+.header {
+    background-color: var(--color-white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 0.5rem 0; /* Reduced padding for more compact navbar */
+    /* Hidden by default - will show on scroll */
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Show header when scrolling */
+.header.scrolled {
+    transform: translateY(0);
+}
+
+/* Desktop header - logo left, nav right */
+.header__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo link */
+.header__logo-link {
+    display: block;
+}
+
+/* Logo size for desktop - reduced by 40% (from 135px to 81px) */
+.header__logo {
+    height: 81px;
+    width: auto;
+}
+
+/* Navigation container - holds both menu and contact icons */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.nav__list {
+    display: flex;
+    gap: var(--spacing-md);
+    list-style: none;
+}
+
+.nav__link {
+    color: var(--color-charcoal);
+    font-weight: 600;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    transition: all var(--transition-speed);
+    border-bottom: 2px solid transparent;
+}
+
+.nav__link:hover {
+    color: var(--color-honey-gold);
+    border-bottom-color: var(--color-honey-gold);
+}
+
+/* Contact icons in navigation */
+.nav__contact-icons {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    padding-left: var(--spacing-sm);
+    border-left: 1px solid var(--color-honey-gold);
+}
+
+.nav__contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: var(--color-honey-gold);
+    background-color: transparent;
+    transition: all var(--transition-speed);
+    border: 2px solid transparent;
+}
+
+.nav__contact-icon:hover {
+    color: var(--color-white);
+    background-color: var(--color-honey-gold);
+    transform: translateY(-2px);
+}
+
+.nav__contact-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Mobile menu toggle button - hidden on desktop, centered on mobile */
+.nav__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.nav__toggle-bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-charcoal);
+    transition: all var(--transition-speed);
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero {
+    /* Background image with overlay for text readability */
+    background-image: 
+        linear-gradient(rgba(253, 241, 233, 0.70), rgba(245, 230, 211, 0.75)),
+        url('../img/background_hero.webp');
+    background-size: cover; /* Cover entire section */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center; /* Center content vertically */
+    padding: 3rem 0; /* Padding for spacing */
+    text-align: center;
+}
+
+/* Prominent logo at top of hero section */
+.hero__logo-container {
+    margin-bottom: var(--spacing-md);
+    animation: fadeInDown 1s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero__logo {
+    height: 175px; /* Reduced by 30% from 250px */
+    width: auto;
+    max-width: 100%;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Fade in animation for logo */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero__title {
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero__subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: var(--color-body-text);
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-primary);
+}
+
+.hero__cta-group {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+/* Primary CTA button - Honey Gold background with white text */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 4px;
+    transition: all var(--transition-speed);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn--primary {
+    background-color: var(--color-deep-forest);
+    color: var(--color-white);
+    border: 2px solid var(--color-deep-forest);
+}
+
+.btn--primary:hover {
+    background-color: var(--color-honey-gold);
+    border-color: var(--color-honey-gold);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary button - Outline style */
+.btn--secondary {
+    background-color: transparent;
+    color: var(--color-charcoal);
+    border: 2px solid var(--color-charcoal);
+}
+
+.btn--secondary:hover {
+    background-color: var(--color-charcoal);
+    color: var(--color-white);
+}
+
+/* ==========================================================================
+   About Section
+   ========================================================================== */
+.about {
+    background-color: var(--color-white);
+}
+
+.about__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.about__image {
+    width: 100%;
+    height: 500px; /* Increased from 400px */
+    object-fit: contain; /* Changed from cover to contain to show full image */
+    border-radius: 12px; /* Rounded corners */
+    background-color: transparent; /* Remove background */
+}
+
+.about__image-caption {
+    text-align: center;
+    font-style: italic;
+    color: var(--color-body-text);
+    margin-top: var(--spacing-sm);
+    font-size: 0.95rem;
+}
+
+.about__text h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+/* Show desktop button, hide mobile button by default */
+.about__cta-desktop {
+    display: inline-block;
+}
+
+.about__cta-mobile {
+    display: none;
+    margin-top: var(--spacing-sm);
+    text-align: center;
+}
+
+/* Decorative divider - thin gold line */
+.divider {
+    height: 1px;
+    background-color: var(--color-honey-gold);
+    margin: var(--spacing-lg) 0;
+    max-width: 200px;
+}
+
+/* ==========================================================================
+   Features Section
+   ========================================================================== */
+.features {
+    text-align: center;
+    /* Background image with overlay for text readability */
+    background-image: 
+        linear-gradient(rgba(253, 241, 233, 0.75), rgba(253, 241, 233, 0.75)),
+        url('../img/background_image_2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.features__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+/* Larger product card variants for features section */
+.category-card--large {
+    background-color: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.category-card--large:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.category-card__image-container--large {
+    height: 300px; /* Larger images for features section */
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.category-card--large .category-card__image {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.category-card__title--large {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-charcoal);
+}
+
+.category-card__description--large {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-body-text);
+}
+
+/* Old feature card styles - keeping for reference but unused now */
+.feature-card {
+    background-color: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card__icon {
+    font-size: 3rem;
+    color: var(--color-honey-gold);
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-card__title {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ==========================================================================
+   Contact Section
+   ========================================================================== */
+.contact {
+    background-color: var(--color-white);
+}
+
+.contact__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.contact__info h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.contact__details {
+    margin-top: var(--spacing-md);
+}
+
+.contact__detail {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact__detail-icon {
+    color: var(--color-honey-gold);
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+}
+
+/* Form styles */
+.form__group {
+    margin-bottom: var(--spacing-sm);
+}
+
+.form__label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+    color: var(--color-charcoal);
+}
+
+.form__input,
+.form__textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-family: var(--font-secondary);
+    transition: border-color var(--transition-speed);
+}
+
+.form__input:focus,
+.form__textarea:focus {
+    outline: none;
+    border-color: var(--color-honey-gold);
+}
+
+.form__textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+    background-color: var(--color-deep-forest);
+    color: var(--color-white);
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+.footer__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.footer__section h3 {
+    color: var(--color-soft-amber);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.25rem;
+}
+
+.footer__section p,
+.footer__section a {
+    color: var(--color-white);
+}
+
+.footer__section a:hover {
+    color: var(--color-soft-amber);
+}
+
+.footer__bottom {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Responsive Design - Mobile
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Adjust container padding for mobile */
+    :root {
+        --container-padding: 1rem;
+        --spacing-lg: 3rem;
+        --spacing-xl: 4rem;
+    }
+    
+    /* Mobile header - wrap items, logo centered, hamburger right */
+    .header__container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+        position: relative;
+    }
+    
+    /* Logo centered on mobile */
+    .header__logo-link {
+        order: 1;
+        flex: 0 0 auto;
+    }
+    
+    /* Logo size for mobile - reduced by 40% (from 100px to 60px) */
+    .header__logo {
+        height: 60px;
+    }
+    
+    /* Hamburger menu on the right - positioned absolutely */
+    .nav__toggle {
+        display: flex;
+        order: 2;
+        flex: 0 0 auto;
+        position: absolute;
+        right: var(--container-padding);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    /* Navigation takes full width below */
+    .nav {
+        width: 100%;
+        order: 3;
+        flex-direction: column;
+    }
+    
+    /* Navigation list appears below when active */
+    .nav__list {
+        display: none;
+        width: 100%;
+        background-color: var(--color-white);
+        flex-direction: column;
+        padding: var(--spacing-sm) 0;
+        text-align: center;
+        gap: 0;
+    }
+    
+    .nav__list.active {
+        display: flex;
+    }
+    
+    /* Better tap targets on mobile */
+    .nav__link {
+        padding: var(--spacing-sm);
+        display: block;
+    }
+    
+    /* Show contact icons at bottom of mobile menu when menu is active */
+    .nav__contact-icons {
+        display: none;
+        border-left: none;
+        border-top: 1px solid var(--color-honey-gold);
+        padding-left: 0;
+        padding-top: var(--spacing-sm);
+        margin-top: var(--spacing-sm);
+        justify-content: center;
+    }
+    
+    /* Show contact icons when nav is active */
+    .nav__list.active ~ .nav__contact-icons {
+        display: flex;
+    }
+    
+    /* Stack hero CTAs vertically */
+    .hero__cta-group {
+        flex-direction: column;
+    }
+    
+    /* Disable parallax effect on mobile for better performance */
+    .hero {
+        background-attachment: scroll;
+    }
+    
+    /* Adjust background scaling on mobile to show more of the image */
+    .hero {
+        background-size: contain; /* Shows more of the image instead of cropping */
+        background-position: top center; /* Align to top for better visibility */
+    }
+    
+    /* Smaller hero logo on mobile */
+    .hero__logo {
+        height: 105px; /* Reduced by 30% from 150px */
+    }
+    
+    /* Single column layouts for mobile - EXCEPT about section */
+    .contact__container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Stack about section on mobile */
+    .about__content {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Swap CTA buttons on mobile - hide desktop, show mobile */
+    .about__cta-desktop {
+        display: none;
+    }
+    
+    .about__cta-mobile {
+        display: block; /* Changed to block for centering */
+    }
+    
+    /* Features grid adjustment */
+    .features__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Smaller product images on mobile */
+    .category-card__image-container--large {
+        height: 180px; /* Reduced from 300px for mobile */
+    }
+    
+    .category-card__title--large {
+        font-size: 1.25rem; /* Slightly smaller on mobile */
+    }
+    
+    .category-card__description--large {
+        font-size: 0.95rem; /* Slightly smaller on mobile */
+    }
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+.text-center {
+    text-align: center;
+}
+
+.mt-lg {
+    margin-top: var(--spacing-lg);
+}
+
+.mb-lg {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Accessibility - screen reader only content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
