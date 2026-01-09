@@ -678,12 +678,10 @@ section.bg-white {
     /* Disable parallax effect on mobile for better performance */
     .hero {
         background-attachment: scroll;
-    }
-    
-    /* Adjust background scaling on mobile to show more of the image */
-    .hero {
-        background-size: contain; /* Shows more of the image instead of cropping */
-        background-position: top center; /* Align to top for better visibility */
+        background-size: cover; /* Use cover on mobile for better appearance */
+        background-position: center; /* Center the image */
+        min-height: auto; /* Remove full height on mobile */
+        padding: var(--spacing-xl) 0; /* Add more vertical padding on mobile */
     }
     
     /* Smaller hero logo on mobile */
@@ -726,6 +724,34 @@ section.bg-white {
     
     .category-card__description--large {
         font-size: 0.95rem; /* Slightly smaller on mobile */
+    }
+    
+    /* Center text elements in mobile */
+    .about__text h2 {
+        text-align: center;
+    }
+    
+    .about__text .divider {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .contact__info h2 {
+        text-align: center;
+    }
+    
+    .contact__info .divider {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .contact__form h3 {
+        text-align: center;
+    }
+    
+    .contact__form .btn {
+        display: block;
+        margin: 0 auto;
     }
 }
 
