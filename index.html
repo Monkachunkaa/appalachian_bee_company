@@ -41,10 +41,17 @@
             </a>
             
             <!-- Mobile menu toggle button (outside nav for proper positioning) -->
-            <button class="nav__toggle" aria-label="Toggle navigation menu">
-                <span class="nav__toggle-bar"></span>
-                <span class="nav__toggle-bar"></span>
-                <span class="nav__toggle-bar"></span>
+            <button class="nav__toggle hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <!-- Three lines that form the hamburger and transform to X -->
+                <div class="top line"></div>
+                <div class="middle line"></div>
+                <div class="bottom line"></div>
+                
+                <!-- Four animated borders that draw in from each side -->
+                <div class="draw_top border"></div>
+                <div class="draw_left border"></div>
+                <div class="draw_bottom border"></div>
+                <div class="draw_right border"></div>
             </button>
             
             <!-- Navigation -->

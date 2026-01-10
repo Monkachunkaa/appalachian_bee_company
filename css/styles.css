@@ -216,17 +216,208 @@ section.bg-white {
 /* Mobile menu toggle button - hidden on desktop, centered on mobile */
 .nav__toggle {
     display: none;
-    flex-direction: column;
-    gap: 4px;
-    padding: 0.5rem;
-    cursor: pointer;
+    background: none;
+    border: none;
 }
 
-.nav__toggle-bar {
-    width: 25px;
-    height: 3px;
-    background-color: var(--color-charcoal);
-    transition: all var(--transition-speed);
+/* ============================================
+   HAMBURGER MENU BUTTON STYLES
+   Creates an animated hamburger menu that:
+   - Transforms 3 lines into an X when clicked
+   - Animates borders drawing in from each side
+   ============================================ */
+
+/* Container for the hamburger button */
+.hamburger {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    position: relative;
+    overflow: visible; /* Changed from hidden to show lines properly */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+}
+
+/* Individual line elements (top, middle, bottom) */
+.line {
+    height: 2px;
+    width: 20px;
+    background-color: var(--color-charcoal); /* Changed to charcoal (black) */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.5s ease;
+}
+
+/* Position each line */
+.top {
+    top: 8px;
+}
+
+.middle {
+    top: 14px;
+}
+
+.bottom {
+    top: 20px;
+}
+
+/* TOP LINE - Rotates to form top half of X */
+.hamburger.active .top {
+    top: 14px;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+/* MIDDLE LINE - Fades out when menu is open */
+.hamburger.active .middle {
+    opacity: 0;
+}
+
+/* BOTTOM LINE - Rotates to form bottom half of X */
+.hamburger.active .bottom {
+    top: 14px;
+    transform: translateX(-50%) rotate(-45deg);
+}
+
+/* ============================================
+   ANIMATED BORDER STYLES
+   Four borders that animate in from off-screen
+   ============================================ */
+
+/* Base border styling */
+.border {
+    margin: auto;
+    background-color: var(--color-charcoal); /* Changed to charcoal (black) */
+    opacity: 0; /* Hide borders by default */
+}
+
+/* Show borders when hamburger is active */
+.hamburger.active .border {
+    opacity: 1;
+}
+
+/* TOP BORDER - Slides in from right */
+.draw_top {
+    height: 1px;
+    width: 30px;
+    position: absolute;
+    top: 0;
+    left: 35px;
+    transition: 1s;
+}
+
+.hamburger.active .draw_top {
+    animation: rightIn 0.4s 0s forwards;
+}
+
+.draw_top.unactive {
+    animation: rightOut 0.4s 0s forwards;
+}
+
+/* LEFT BORDER - Slides in from top */
+.draw_left {
+    height: 29px;
+    width: 1px;
+    position: absolute;
+    top: -35px;
+    left: 0;
+    transition: 1s;
+}
+
+.hamburger.active .draw_left {
+    animation: topIn 0.4s 0.3s forwards;
+}
+
+.draw_left.unactive {
+    animation: topOut 0.4s 0.3s forwards;
+}
+
+/* BOTTOM BORDER - Slides in from left */
+.draw_bottom {
+    height: 1px;
+    width: 29px;
+    position: absolute;
+    top: 29px;
+    left: -35px;
+    transition: 1s;
+}
+
+.hamburger.active .draw_bottom {
+    animation: leftIn 0.4s 0s forwards;
+}
+
+.draw_bottom.unactive {
+    animation: leftOut 0.4s 0s forwards;
+}
+
+/* RIGHT BORDER - Slides in from bottom */
+.draw_right {
+    height: 30px;
+    width: 1px;
+    position: absolute;
+    top: 35px;
+    left: 29px;
+    transition: 1s;
+}
+
+.hamburger.active .draw_right {
+    animation: bottomIn 0.4s 0.3s forwards;
+}
+
+.draw_right.unactive {
+    animation: bottomOut 0.4s 0.3s forwards;
+}
+
+/* ============================================
+   KEYFRAME ANIMATIONS
+   Control the border sliding in/out
+   ============================================ */
+
+/* Top border animations (horizontal movement) */
+@keyframes rightIn {
+    0% { left: 35px; }
+    100% { left: 0px; }
+}
+
+@keyframes rightOut {
+    0% { left: 0px; }
+    100% { left: 35px; }
+}
+
+/* Left border animations (vertical movement) */
+@keyframes topIn {
+    0% { top: -35px; }
+    100% { top: 0px; }
+}
+
+@keyframes topOut {
+    0% { top: 0px; }
+    100% { top: -35px; }
+}
+
+/* Bottom border animations (horizontal movement) */
+@keyframes leftIn {
+    0% { left: -35px; }
+    100% { left: 0px; }
+}
+
+@keyframes leftOut {
+    0% { left: 0px; }
+    100% { left: -35px; }
+}
+
+/* Right border animations (vertical movement) */
+@keyframes bottomIn {
+    0% { top: 35px; }
+    100% { top: 0px; }
+}
+
+@keyframes bottomOut {
+    0% { top: 0px; }
+    100% { top: 35px; }
 }
 
 /* ==========================================================================
@@ -615,15 +806,15 @@ section.bg-white {
         height: 60px;
     }
     
-    /* Hamburger menu on the right - positioned absolutely */
+    /* Hamburger menu on the right - positioned absolutely from top */
     .nav__toggle {
         display: flex;
         order: 2;
         flex: 0 0 auto;
         position: absolute;
         right: var(--container-padding);
-        top: 50%;
-        transform: translateY(-50%);
+        top: 1rem; /* Fixed distance from top instead of centering */
+        transform: none; /* Remove translateY centering */
     }
     
     /* Navigation takes full width below */
@@ -639,7 +830,7 @@ section.bg-white {
         width: 100%;
         background-color: var(--color-white);
         flex-direction: column;
-        padding: var(--spacing-sm) 0;
+        padding: var(--spacing-sm) 0 0 0; /* Remove bottom padding */
         text-align: center;
         gap: 0;
     }
@@ -661,7 +852,7 @@ section.bg-white {
         border-top: 1px solid var(--color-honey-gold);
         padding-left: 0;
         padding-top: var(--spacing-sm);
-        margin-top: var(--spacing-sm);
+        margin-top: 0; /* Remove top margin to eliminate space */
         justify-content: center;
     }
     
