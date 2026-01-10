@@ -234,7 +234,7 @@ section.bg-white {
     cursor: pointer;
     position: relative;
     overflow: visible; /* Changed from hidden to show lines properly */
-    display: flex;
+    /* Removed display: flex from here - controlled by .nav__toggle */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -808,7 +808,7 @@ section.bg-white {
     
     /* Hamburger menu on the right - positioned absolutely from top */
     .nav__toggle {
-        display: flex;
+        display: flex; /* Show hamburger on mobile */
         order: 2;
         flex: 0 0 auto;
         position: absolute;
